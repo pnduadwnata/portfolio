@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pandu Adi Winata - Photographer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 10px; }
+        /* Active Navigation Underline */
+        .active-underline { border-bottom-width: 3px; border-color: #f8ae71; font-weight: 700; color: #f8ae71; }
+        /* Masonry Item Hover Effect */
+        .masonry-item { break-inside: avoid; margin-bottom: 1rem; border-radius: 0.5rem; overflow: hidden; cursor: pointer; transition: transform 0.3s ease; }
+        .masonry-item:hover { transform: scale(1.03); z-index: 10;} /* Adjusted scale for a smoother effect */
+        /* Floating Action Button (FAB) */
+        .fab-btn {
+            position: fixed;
+            bottom: 1.5rem; /* Adjusted for mobile view */
+            right: 1.5rem; /* Adjusted for mobile view */
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: #f8ae71; /* Changed to accent color for visibility */
+            color: white;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(248, 174, 113, 0.6); /* Adjusted shadow color */
+            cursor: pointer;
+            transition: background-color 0.2s;
+            z-index: 50;
+        }
+        .fab-btn:hover { background-color: #f09a5a; } /* Darker on hover */
+        /* Base Body Styles */
+        body { background-color: #141313; color: #e5e7eb; }
+        /* Navigation Styles */
+        nav { background-color: #141313; }
+        nav a { color: #e5e7eb; }
+        nav a:hover { color: #f8ae71; }
+        /* Adjusted gray colors for better contrast on dark background */
+        .bg-gray-50 { background-color: #374155; } /* Darker gray for elements */
+        .text-gray-600 { color: #d1d5db; }
+        .text-gray-700 { color: #e5e7eb; }
+        .text-gray-900 { color: #f9fafb; }
+
+        /* Custom Styles for Mobile Navigation (Hamburger Menu) */
+        @media (max-width: 767px) { /* Applies only on screens smaller than md (768px) */
+            .nav-menu {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Position below header */
+                left: 0;
+                width: 100%;
+                background-color: #141313; /* Same as nav background */
+                box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+                padding: 1rem 0;
+                text-align: center;
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+            }
+            .nav-menu.active {
+                display: flex; /* Show when active */
+            }
+            .nav-menu li {
+                width: 100%;
+            }
+            .nav-menu a {
+                display: block;
+                padding: 0.75rem 0;
+                font-size: 1.125rem; /* text-lg */
+            }
+            .nav-menu a:hover {
+                background-color: #2A2A2A;
+            }
+            .nav-toggle {
+                display: block; /* Show hamburger icon on mobile */
+            }
+            .nav-logo {
+                margin: 0; /* Remove horizontal margin on mobile */
+            }
+        }
+        @media (min-width: 768px) { /* md breakpoint and up */
+            .nav-menu {
+                display: flex !important; /* Always show menu on desktop */
+            }
+            .nav-toggle {
+                display: none; /* Hide hamburger icon on desktop */
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- Navbar -->
+<nav class="flex items-center justify-between px-4 py-4 md:px-6 md:py-4 max-w-full sticky top-0 z-40">
+    <div class="font-bold text-2xl text-yellow-600 flex-shrink-0 nav-logo">Pandu Adi Winata</div>
+    
+    <!-- Hamburger Menu Icon (Mobile Only) -->
+    <button id="navToggle" class="text-white text-2xl md:hidden nav-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navigation Links -->
+    <ul id="navMenu" class="nav-menu space-x-8 font-semibold text-lg md:flex md:space-x-8 md:static md:w-auto md:bg-transparent md:shadow-none md:p-0">
+        <li><a href="#home" class="hover:text-yellow-600">Home</a></li>
+        <li><a href="#services" class="hover:text-yellow-600 transition">Services</a></li>
+        <li><a href="#skills" class="hover:text-yellow-600 transition">Skills</a></li>
+        <li><a href="#education" class="hover:text-yellow-600 transition">Education</a></li>
+        <li><a href="#experience" class="hover:text-yellow-600 transition">Experience</a></li>
+        <li><a href="#contact" class="hover:text-yellow-600 transition">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Home Section -->
+<section id="home" class="w-full px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 text-center md:text-left">
+        <!-- Left: Portrait -->
+        <div class="w-72 h-45 rounded-full overflow-hidden shadow-lg relative flex-shrink-0">
+            <img
+                src="pict/COVER/Gambar WhatsApp 2025-06-25 pukul 15.40.29_e15761c2.jpg"
+                alt="Portrait of Pandu"
+                class="object-cover w-full h-full object-top"
+                onerror="this.onerror=null;this.src='https://placehold.co/256x256/334155/F8FAFC?text=Foto+Profil';"
+            />
+        </div>
+
+        <!-- Right: Intro and Socials -->
+        <div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
+                Hi, it's <span class="text-yellow-600">Pandu Adi Winata</span>
+            </h1>
+            <p class="text-xl sm:text-2xl lg:text-3xl font-semibold mb-3 sm:mb-4">
+                I'm a <span class="text-yellow-600">Professional Photographer / Graphic Designer</span>
+            </p>
+            <p class="max-w-xl text-base sm:text-lg leading-relaxed mb-5 sm:mb-6 text-gray-300 mx-auto md:mx-0">
+                Passionate about capturing the moments that tell stories, and turning fleeting instants into timeless works of art. I specialize in portrait, nature, and country photography with a keen eye for lighting and composition.
+            </p>
+            
+            <!-- Social icons -->
+            <div class="flex justify-center md:justify-start gap-4 mb-5 sm:mb-6">
+                <a href="https://www.linkedin.com/in/pandu-adi-winata-0428b5371/" target="_blank" class="border border-yellow-600 p-3 rounded-full text-yellow-600 hover:bg-yellow-600 hover:text-white transition">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=miftamahesa56@gmail.com" target="_blank" class="border border-yellow-600 p-3 rounded-full text-yellow-600 hover:bg-yellow-600 hover:text-white transition">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/6283121849912" target="_blank" class="border border-yellow-600 p-3 rounded-full text-yellow-600 hover:bg-yellow-600 hover:text-white transition">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/pnduadwnata" target="_blank" class="border border-yellow-600 p-3 rounded-full text-yellow-600 hover:bg-yellow-600 hover:text-white transition">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+
+            <a
+                href="#contact"
+                class="inline-block rounded-full border border-yellow-600 px-8 py-3 font-semibold tracking-wider text-yellow-600 transition hover:bg-yellow-600 hover:text-white"
+            >
+                Hire me
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section
+    id="services"
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 border-t border-gray-600"
+>
+    <h2 class="text-3xl font-extrabold text-center mb-8 md:mb-12">
+        Services
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div class="p-6 rounded-lg shadow hover:shadow-lg transition" style="background-color: rgba(201, 160, 89, 0.3);">
+            <i class="fas fa-camera-retro fa-3x text-yellow-600 mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2 text-white">Portrait Photography</h3>
+            <p class="text-white">
+                Capturing authentic and expressive portraits that reveal your true self.
+            </p>
+        </div>
+
+        <div class="p-6 rounded-lg shadow hover:shadow-lg transition" style="background-color: rgba(201, 160, 89, 0.3);">
+            <i class="fas fa-palette fa-3x text-yellow-600 mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2 text-white">Brand & Visual Design</h3>
+            <p class="text-white">
+                Creating strong visual identities and brand designs with elegance and precision.
+            </p>
+        </div>
+
+        <div class="p-6 rounded-lg shadow hover:shadow-lg transition" style="background-color: rgba(201, 160, 89, 0.3);">
+            <i class="fas fa-globe-americas fa-3x text-yellow-600 mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2 text-white">Travel Photography</h3>
+            <p class="text-white">
+                Visual storytelling through photos highlighting culture and landscapes.
+            </p>
+        </div>
+
+        <div class="p-6 rounded-lg shadow hover:shadow-lg transition" style="background-color: rgba(201, 160, 89, 0.3);">
+            <i class="fas fa-pen-nib fa-3x text-yellow-600 mb-4"></i>
+            <h3 class="text-xl font-semibold mb-2 text-white">Poster & Digital Content</h3>
+            <p class="text-white">
+                Designing impactful posters, social media content, and graphic visuals.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section
+    id="skills"
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 border-t border-gray-600"
+>
+    <h2 class="text-3xl font-extrabold text-center mb-8 md:mb-12">
+        Skills
+    </h2>
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+        <div>
+            <h3 class="text-xl font-semibold mb-3 sm:mb-4">Photography & Technical</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                <li>DSLR & Mirrorless Camera Mastery</li>
+                <li>Manual Exposure & Light Control</li>
+                <li>Creative Composition & Framing</li>
+                <li>Studio & Natural Lighting Setup</li>
+                <li>HDR & Long-Exposure Techniques</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold mb-3 sm:mb-4">Graphic Design & Software</h3>
+            <ul class="list-disc list-inside space-y-2 text-gray-300">
+                <li>Adobe Photoshop, Illustrator & Lightroom</li>
+                <li>Brand Identity & Visual Consistency</li>
+                <li>Poster, Banner & Social Media Design</li>
+                <li>Typography & Layout Composition</li>
+                <li>Color Theory & Visual Hierarchy</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section
+    id="education"
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 border-t border-gray-600"
+>
+    <h2 class="text-3xl font-extrabold text-center mb-8 md:mb-12">
+        Education
+    </h2>
+    <div class="max-w-3xl mx-auto space-y-6 md:space-y-8">
+        <div>
+            <h3 class="text-xl font-semibold">Vocational High School — Visual Communication Design</h3>
+            <span class="text-gray-400 text-sm">2022 – 2025</span>
+            <p class="mt-2 text-gray-300">
+                Pursuing a vocational education focused on graphic design, visual media, and photography. Developed core design principles, creative thinking, and technical software skills.
+            </p>
+        </div>
+        <div>
+            <h3 class="text-xl font-semibold">Independent Study and Practice</h3>
+            <span class="text-gray-400 text-sm">2020 – Present</span>
+            <p class="mt-2 text-gray-300">
+                Gained extensive practical knowledge through self-directed learning, industry resources, and hands-on experience in photography, editing, and design.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section
+    id="experience"
+    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 border-t border-gray-600"
+>
+    <h2 class="text-3xl font-extrabold text-center mb-8 md:mb-12">
+        Experience
+    </h2>
+    <div class="max-w-4xl mx-auto space-y-8 md:space-y-10">
+        <div>
+            <h3 class="text-xl font-semibold leading-tight">
+                Raintrace Picture – Creative Crew
+                <span class="text-yellow-600 font-semibold block sm:inline-block text-base sm:text-xl"> (2024 – Present)</span>
+            </h3>
+            <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300 text-base">
+                <li>Contributed to photography and design projects including portraits, pre-wedding, graduation, and nature-based shoots.</li>
+                <li>Involved in creative direction, photo editing, and project execution as part of a small professional team.</li>
+                <li>Collaborated closely with other members to ensure consistent quality and client satisfaction.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-semibold leading-tight">
+                Design Intern – PT Zealin Cosmetics Perfumery
+                <span class="text-yellow-600 font-semibold block sm:inline-block text-base sm:text-xl"> (2024)</span>
+            </h3>
+            <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300 text-base">
+                <li>Created visual assets including product labels, social media posts, and packaging designs for a local cosmetics brand.</li>
+                <li>Worked directly with the marketing and product development team to align design output with brand identity.</li>
+                <li>Gained experience handling real-world creative briefs and tight production schedules.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-semibold leading-tight">
+                Nesker TV Official – Production Crew
+                <span class="text-yellow-600 font-semibold block sm:inline-block text-base sm:text-xl"> (2022 – 2025)</span>
+            </h3>
+            <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300 text-base">
+                <li>Assisted in content creation, filming, and editing for video and multimedia productions.</li>
+                <li>Operated cameras, managed on-set logistics, and participated in post-production processes.</li>
+                <li>Ensured technical quality and contributed to creative brainstorming sessions for new media content.</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="text-xl font-semibold leading-tight">
+                Freelance Photographer
+                <span class="text-yellow-600 font-semibold block sm:inline-block text-base sm:text-xl"> (2023 – Present)</span>
+            </h3>
+            <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300 text-base">
+                <li>Handled various photography projects with a focus on storytelling, composition, and lighting.</li>
+                <li>Delivered high-quality content for personal clients, events, and creative collaborations.</li>
+                <li>Managed the full workflow including client briefings, shooting, editing, and delivery.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 border-t border-gray-600">
+    <h2 class="text-3xl font-extrabold text-center mb-8 md:mb-12">Portfolio</h2>
+
+    <!-- Filter Buttons -->
+    <div class="flex justify-center gap-4 sm:gap-6 md:gap-8 mb-8 md:mb-12 flex-wrap font-semibold text-base sm:text-lg cursor-pointer select-none">
+        <div class="filter-btn active-underline px-3 py-1 rounded-full transition hover:bg-gray-700" data-filter="all">All</div>
+        <div class="filter-btn px-3 py-1 rounded-full transition hover:bg-gray-700" data-filter="human">Human</div>
+        <div class="filter-btn px-3 py-1 rounded-full transition hover:bg-gray-700" data-filter="nature">Nature</div>
+        <div class="filter-btn px-3 py-1 rounded-full transition hover:bg-gray-700" data-filter="video">Video</div>
+        <div class="filter-btn px-3 py-1 rounded-full transition hover:bg-gray-700" data-filter="design">Design</div>
+    </div>
+
+    <!-- Portfolio Items -->
+    <!-- Removed custom masonry class and simplified to Tailwind columns -->
+    <div id="portfolio-items" class="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
+        <!-- HUMAN -->
+        <div class="masonry-item" data-category="human"><img src="pict/Human/1.jpg" class="w-full h-auto rounded-lg" alt="Human 1" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="human"><img src="pict/Human/2.jpg" class="w-full h-auto rounded-lg" alt="Human 2" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="human"><img src="pict/Human/3.jpg" class="w-full h-auto rounded-lg" alt="Human 3" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="human"><img src="pict/Human/4.jpg" class="w-full h-auto rounded-lg" alt="Human 4" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="human"><img src="pict/Human/5.jpg" class="w-full h-auto rounded-lg" alt="Human 5" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="human"><img src="pict/Human/6.jpg" class="w-full h-auto rounded-lg" alt="Human 6" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="human"><img src="pict/Human/7.jpg" class="w-full h-auto rounded-lg" alt="Human 7" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="human"><img src="pict/Human/8.jpg" class="w-full h-auto rounded-lg" alt="Human 8" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+
+        <!-- NATURE -->
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/1.jpg" class="w-full h-auto rounded-lg" alt="Nature 1" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/2.jpg" class="w-full h-auto rounded-lg" alt="Nature 2" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/3.jpg" class="w-full h-auto rounded-lg" alt="Nature 3" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/4.jpg" class="w-full h-auto rounded-lg" alt="Nature 4" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/5.jpg" class="w-full h-auto rounded-lg" alt="Nature 5" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/6.jpg" class="w-full h-auto rounded-lg" alt="Nature 6" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/7.jpg" class="w-full h-auto rounded-lg" alt="Nature 7" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/8.jpg" class="w-full h-auto rounded-lg" alt="Nature 8" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/9.jpg" class="w-full h-auto rounded-lg" alt="Nature 9" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/10.jpg" class="w-full h-auto rounded-lg" alt="Nature 10" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="nature"><img src="pict/Nature/11.jpg" class="w-full h-auto rounded-lg" alt="Nature 11" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+
+        <!-- VIDEO -->
+        <div class="masonry-item" data-category="video">
+            <video controls poster="pict/Video/cover.jpg" class="w-full rounded-lg" onerror="this.onerror=null;this.poster='https://placehold.co/400x600/334155/F8FAFC?text=Video+Error';" >
+                <source src="pict/Video/Video.mp4" type="video/mp4" />
+                Browsermu gak support video.
+            </video>
+        </div>
+        <div class="masonry-item" data-category="video">
+            <video controls poster="pict/Video/cover2.jpeg" class="w-full rounded-lg" onerror="this.onerror=null;this.poster='https://placehold.co/400x600/334155/F8FAFC?text=Video+Error';" >
+                <source src="pict/Video/prewed.mp4" type="video/mp4" />
+                Browsermu gak support video.
+            </video>
+        </div>
+
+        <!-- DESIGN -->
+        <div class="masonry-item" data-category="design"><img src="pict/Design/1.jpg" class="w-full h-auto rounded-lg" alt="Design 1" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="design"><img src="pict/Design/2.jpg" class="w-full h-auto rounded-lg" alt="Design 2" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="design"><img src="pict/Design/3.jpg" class="w-full h-auto rounded-lg" alt="Design 3" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="design"><img src="pict/Design/4.jpg" class="w-full h-auto rounded-lg" alt="Design 4" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="design"><img src="pict/Design/5.png" class="w-full h-auto rounded-lg" alt="Design 5" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+        <div class="masonry-item" data-category="design"><img src="pict/Design/6.jpg" class="w-full h-auto rounded-lg" alt="Design 6" onerror="this.onerror=null;this.src='https://placehold.co/400x600/334155/F8FAFC?text=Image+Error';"></div>
+    </div>
+</section>
+
+<!-- Filtering Script -->
+<script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.masonry-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.dataset.filter;
+
+            filterButtons.forEach(btn => btn.classList.remove('active-underline'));
+            button.classList.add('active-underline');
+
+            items.forEach(item => {
+                const itemCategory = item.dataset.category;
+                if (category === 'all' || itemCategory === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+
+    // JavaScript for Hamburger Menu Toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    // Close nav menu when a link is clicked (for mobile)
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+</script>
+
+<!-- Contact + Instagram Section -->
+<section id="contact" class="bg-gray-800 text-gray-100 py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-extrabold text-center mb-6">Get in Touch</h2>
+        <p class="mb-8 md:mb-10 max-w-2xl mx-auto text-base sm:text-lg text-center text-gray-300">
+            Feel free to reach out for collaborations, commissions, or just to say hello.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <!-- Contact Info -->
+            <div class="space-y-4 md:space-y-6 text-base text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <i class="fas fa-envelope text-yellow-600 w-6 flex-shrink-0"></i>
+                    <span class="break-all">miftamahesa56@gmail.com</span>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <i class="fas fa-phone text-yellow-600 w-6 flex-shrink-0"></i>
+                    <span>+62 831-2184-9912</span>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <i class="fas fa-location-dot text-yellow-600 w-6 flex-shrink-0"></i>
+                    <span>Brebes, Central Java, Indonesia</span>
+                </div>
+                <div class="pt-4 text-center md:text-left">
+                    <a
+                        href="https://wa.me/6283121849912"
+                        target="_blank"
+                        class="inline-block border border-yellow-600 px-6 py-2 rounded-full font-semibold text-yellow-600 hover:bg-yellow-600 hover:text-white transition text-sm sm:text-base"
+                    >
+                        Chat via WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Instagram Feed -->
+            <div class="text-center">
+                <h3 class="text-2xl font-extrabold mb-2 text-white">Follow Instagram</h3>
+                <p class="mb-4 md:mb-6 text-base text-gray-300">
+                    <a href="https://instagram.com/pnduadwnata" target="_blank" class="text-yellow-600 hover:underline">@pnduadwnata</a>
+                </p>
+                <div class="flex overflow-x-auto gap-4 justify-start sm:justify-center px-2 py-2">
+                    <img src="pict/Instagram Feed/1.png" alt="Insta 1" class="min-w-[160px] sm:min-w-[200px] max-w-[200px] rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/200x200/334155/F8FAFC?text=Insta+Error';">
+                    <img src="pict/Instagram Feed/2.png" alt="Insta 2" class="min-w-[160px] sm:min-w-[200px] max-w-[200px] rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/200x200/334155/F8FAFC?text=Insta+Error';">
+                    <img src="pict/Instagram Feed/3.png" alt="Insta 3" class="min-w-[160px] sm:min-w-[200px] max-w-[200px] rounded-lg shadow-md" onerror="this.onerror=null;this.src='https://placehold.co/200x200/334155/F8FAFC?text=Insta+Error';">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm">
+    <p>&copy; 2025 Pandu Adi Winata. All rights reserved.</p>
+</footer>
+
+<!-- FAB (Floating Action Button) for Hire me -->
+<a href="#contact" class="fab-btn">
+    <i class="fas fa-handshake text-2xl"></i>
+</a>
+</body>
+</html>
